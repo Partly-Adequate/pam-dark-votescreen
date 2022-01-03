@@ -1,4 +1,4 @@
-local name = "default_votescreen"
+local name = "dark_votescreen"
 PAM_EXTENSION.name = name
 PAM_EXTENSION.enabled = true
 
@@ -7,7 +7,7 @@ local panel = nil
 local scale_setting = PAM.setting_namespace:AddChild(name):AddSetting("scale", pacoman.TYPE_INTEGER, 100)
 
 function PAM_EXTENSION:OnVoteStarted()
-	panel = vgui.Create("pam_default_votescreen")
+	panel = vgui.Create("pam_dark_votescreen")
 end
 
 function PAM_EXTENSION:OnVoteCanceled()
@@ -51,14 +51,14 @@ end
 
 function PAM_EXTENSION:Initialize()
 	local function ScaleChanged(new_scale)
-		include("pam/client/extensions/default_votescreen_panel.lua")
+		include("pam/client/extensions/dark_votescreen_panel.lua")
 		if not self.enabled then return end
 
 		self:OnDisable()
 		self:OnEnable()
 	end
 
-	scale_setting:AddCallback("default", ScaleChanged)
+	scale_setting:AddCallback("reload_votescreen", ScaleChanged)
 
-	include("pam/client/extensions/default_votescreen_panel.lua")
+	include("pam/client/extensions/dark_votescreen_panel.lua")
 end

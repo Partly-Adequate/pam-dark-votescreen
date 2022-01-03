@@ -1,6 +1,6 @@
 local PANEL = {}
 
-local setting_namespace = PAM.setting_namespace:GetChild("default_votescreen")
+local setting_namespace = PAM.setting_namespace:GetChild("dark_votescreen")
 local scale = setting_namespace and setting_namespace:GetSetting("scale"):GetActiveValue() or 100
 
 scale = scale / 100
@@ -506,4 +506,4 @@ function PANEL:AnnounceWinner()
 	self:RefreshOptionList()
 end
 
-derma.DefineControl("pam_default_votescreen", "", PANEL, "DFrame")
+derma.DefineControl("pam_dark_votescreen", "", PANEL, "DFrame")
