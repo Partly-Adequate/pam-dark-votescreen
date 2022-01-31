@@ -4,7 +4,7 @@ PAM_EXTENSION.enabled = true
 
 local panel = nil
 
-local scale_setting = PAM.setting_namespace:AddChild(name):AddSetting("scale", pacoman.TYPE_INTEGER, 100)
+local scale_setting = PAM.setting_namespace:AddChild(name):AddSetting("scale", pacoman.TYPE_INTEGER, 100, "Make the votescreen bigger/smaller to better fit the resolution of your display.")
 
 function PAM_EXTENSION:OnVoteStarted()
 	panel = vgui.Create("pam_dark_votescreen")
