@@ -22,7 +22,7 @@ function PAM_EXTENSION:OnVoterRemoved(ply)
 	panel:RemoveVoter(ply)
 end
 
-function PAM_EXTENSION:OnWinnerAnnounced()
+function PAM_EXTENSION:OnOptionWon()
 	panel:AnnounceWinner()
 end
 
@@ -38,7 +38,7 @@ function PAM_EXTENSION:OnEnable()
 		end
 	end
 	if PAM.state == PAM.STATE_FINISHED then
-		self:OnWinnerAnnounced()
+		self:OnOptionWon()
 	end
 end
 
