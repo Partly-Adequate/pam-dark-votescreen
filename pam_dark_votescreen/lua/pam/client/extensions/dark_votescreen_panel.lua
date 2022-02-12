@@ -397,7 +397,7 @@ end
 function PANEL:RefreshOptionList()
 	self.option_list:Clear()
 	for _, option_button in pairs(self.option_buttons) do
-		if (not PAM.winning_option and self:FitsSearchTerm(option_button) and (not self.show_favorites or PAM.IsFavorite(option_button.option.name)) and (not self.show_voted_on or option_button.voter_count > 0)) or PAM.winning_option.id == option_button.option.id then
+		if PAM.winning_option and (PAM.winning_option.id == option_button.option.id) or (self:FitsSearchTerm(option_button) and (not self.show_favorites or PAM.IsFavorite(option_button.option.name)) and (not self.show_voted_on or option_button.voter_count > 0)) then
 			self.option_list:AddItem(option_button)
 			option_button:SetVisible(true)
 		else
